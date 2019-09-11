@@ -1,0 +1,28 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: kafka-tool
+  namespace: {{namespace}}
+  labels:
+    team: teampeon
+spec:
+  image: repo.adeo.no:5443/kafka-tool:{{version}}
+  port: 8080
+  ingresses:
+    - {{ingress}}
+  liveness:
+    path: isAlive
+  readiness:
+    path: isReady
+  replicas:
+    min: 1
+    max: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 384Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  vault:
+    enabled: true
