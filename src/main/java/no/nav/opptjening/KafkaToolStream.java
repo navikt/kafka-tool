@@ -22,6 +22,7 @@ public class KafkaToolStream {
         LOG.debug("Initializing aggregate count for topic: {}", KafkaConfiguration.SKATTEOPPGJORHENDELSE_TOPIC);
         StreamsBuilder streamBuilder = new StreamsBuilder();
         KStream<HendelseKey, Hendelse> builder = streamBuilder.stream(KafkaConfiguration.SKATTEOPPGJORHENDELSE_TOPIC);
+
         builder.flatMapValues((readOnlyKey, value) -> Collections.singletonList(readOnlyKey.getGjelderPeriode()))
                 .selectKey((key, value) -> key.getGjelderPeriode())
                 .groupByKey(Serialized.with(Serdes.String(), Serdes.String()))
