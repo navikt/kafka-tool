@@ -6,7 +6,7 @@ REGISTRY:= repo.adeo.no:5443
 .PHONY: all build test docker docker-push bump-version release manifest
 
 all: build test docker
-release: tag docker-push manifest
+release: tag docker-push
 
 build:
 	$(DOCKER) run --rm -t \
