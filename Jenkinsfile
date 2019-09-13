@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME    = "kafkatool"
+        APP_NAME    = "kafka-tool"
         APP_TOKEN   = github.generateAppToken()
         DOCKER_REPO = "repo.adeo.no:5443"
     }
