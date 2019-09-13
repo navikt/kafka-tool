@@ -6,7 +6,7 @@ REGISTRY:= repo.adeo.no:5443
 .PHONY: all build test docker docker-push bump-version release manifest
 
 all: build test docker
-release: tag docker-push
+release: tag docker-push manifest
 
 build:
 	$(DOCKER) run --rm -t \
@@ -33,8 +33,6 @@ docker:
 docker-push:
 	$(DOCKER) push $(REGISTRY)/kafka-tool:$(VERSION)
 
-bump-version:
-	@echo $$(($$(cat ./VERSION) + 1)) > ./VERSION
 
 tag:
 	git add VERSION
