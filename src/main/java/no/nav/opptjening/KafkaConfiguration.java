@@ -14,7 +14,7 @@ import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 
 public class KafkaConfiguration {
-    static final String SKATTEOPPGJØRHENDELSE_TOPIC = "privat-tortuga-skatteoppgjorhendelse";
+    static final String SKATTEOPPGJORHENDELSE_TOPIC = "privat-tortuga-skatteoppgjorhendelse";
 
     public static class Properties {
         static final String BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS";

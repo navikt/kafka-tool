@@ -4,6 +4,7 @@ import static java.lang.Integer.MAX_VALUE;
 import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
 
+import static no.nav.opptjening.KafkaConfiguration.SKATTEOPPGJORHENDELSE_TOPIC;
 import static org.apache.kafka.clients.CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.ACKS_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG;
@@ -11,8 +12,6 @@ import static org.apache.kafka.clients.producer.ProducerConfig.RETRIES_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG;
 
 import static io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG;
-
-import static no.nav.opptjening.KafkaConfiguration.SKATTEOPPGJØRHENDELSE_TOPIC;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +30,7 @@ import no.nav.opptjening.schema.skatt.hendelsesliste.HendelseKey;
 class KafkaTestEnvironment {
     private static final String KAFKA_USERNAME = "srvTest";
     private static final String KAFKA_PASSWORD = "opensourcedPassword";
-    private static final String TOPICS = SKATTEOPPGJØRHENDELSE_TOPIC;
+    private static final String TOPICS = SKATTEOPPGJORHENDELSE_TOPIC;
     private static final int NUMBER_OF_BROKERS = 3;
 
     private static Map<String, Object> configs;
